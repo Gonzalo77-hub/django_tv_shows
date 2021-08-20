@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ STATIC_URL }} /static/style.css">
+</head>
+
+<body>
+    <div class="container">
+
+          <h1>TV Show {{tv.id}}</h1>
+          <div class="row py-2">
+            <div class="col my-3">
+              <h3>Title:{{tv.title}}</h3>
+              <h3>Network:{{tv.network}}</h3>
+              <h3>Release Date:{{tv.Release}}</h3>
+              <h3>Description:{{tv.desc}}</h3>   
+
+            </div>
+
+
+
+          </div>
+
+
+
+
+
+            <div class="row">
+                <a class="btn btn-primary" href="http://127.0.0.1:8000/Shows/New" role="button"> Ir a la vista de agregar show's</a>
+              </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+    <scripts src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </scripts>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</body>
+
+</html>
