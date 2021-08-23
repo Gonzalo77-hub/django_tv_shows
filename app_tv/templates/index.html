@@ -11,12 +11,23 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ STATIC_URL }} /static/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <link href="toastr.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="toastr.js"></script>
 </head>
 
 <body>
     <div class="container">
 
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
 
         <h1>Add a New Show</h1>
 
@@ -25,11 +36,11 @@
             {% csrf_token %}
             <div class="mb-3">
                 <label for="inputTitle" class="form-label">Title</label>
-                <input type="text" class="form-control" id="inputTitle" name= 'title'>
+                <input type="text" class="form-control" id="inputTitle" name='title'>
             </div>
             <div class="mb-3">
                 <label for="exampleInputNetwork" class="form-label">Network</label>
-                <input type="text" class="form-control" id="exampleInputNetwork" name= 'Network'>
+                <input type="text" class="form-control" id="exampleInputNetwork" name='Network'>
                 <label for="inputDate" class="form-label">Release Date</label>
                 <input type="datetime" class="form-control" id="inputDate" name='Release'>
             </div>
@@ -43,8 +54,9 @@
 
     </div>
     <div class="row">
-        <a class="btn btn-primary" href="http://127.0.0.1:8000/Shows" role="button"> Ir a la vista de la tabla de show's</a>
-      </div>
+        <a class="btn btn-primary" href="http://127.0.0.1:8000/Shows" role="button"> Ir a la vista de la tabla de
+            show's</a>
+    </div>
 
 
 

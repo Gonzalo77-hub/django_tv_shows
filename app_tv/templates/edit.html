@@ -17,11 +17,17 @@
 <body>
     <div class="container">
 
-
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         <h1>Edit Show {{programa.id}}</h1>
 
 
-        <form action="http://127.0.0.1:8000/Shows/editar" method="post">
+        <form action="/Shows/editar" method="post">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="inputTitle" class="form-label">Title</label>
@@ -31,8 +37,7 @@
                 <label for="exampleInputNetwork" class="form-label">Network</label>
                 <input type="text" class="form-control" id="exampleInputNetwork" name="edit_Network" value="{{programa.network}}">
                 <label for="inputDate" class="form-label">Release Date</label>
-                <input type="date" class="form-control" id="inputDate" name= "edit_releaseDate" value="{{programa.Release|date:"Y-m-d"
-            }}">
+                <input type="datetime" class="form-control" id="inputDate" name= "edit_releaseDate" value='{{programa.Release|date:"Y-m-d"}}'>
             </div>
             <div class="mb-3">
                 <label for="inputDescription" class="form-label">Descripction</label>
