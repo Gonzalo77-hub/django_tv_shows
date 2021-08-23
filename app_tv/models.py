@@ -10,7 +10,7 @@ class ShowManager(models.Manager):
             errors["title"] = "El largo del titulo debe ser mayor a 2 caracteres"
         if len(postData['Network']) < 3:
             errors["Network"] = "El largo del network debe ser mayor a 3 caracteres"
-        if len(postData['desc']) < 10:
+        if 1 <= len(postData['desc']) < 10 :
             errors["desc"] = "El largo de la descripcion debe ser mayor a 10 caracteres"
         if Show.objects.filter(title=postData['title']).exists():
             errors['existe'] ='El titulo ya existe, favor ingresar otro'

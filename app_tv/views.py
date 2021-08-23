@@ -26,7 +26,7 @@ def crear(request):
         network=network, 
         Release=release,
         desc= description,)
-        messages.success(request, "Blog successfully updated")
+        messages.success(request, "Show de TV agregado correctamente")
 
 
         return redirect(f"/Shows/{show.id}")
@@ -74,6 +74,8 @@ def edit(request):
         program.Release = ed_release
         program.desc = ed_desc
         program.save()
+        messages.success(request, "Show de TV editado correctamente")
+
         return redirect("/Shows")
 def delete(request, val):
     borr = Show.objects.get(id=val)
